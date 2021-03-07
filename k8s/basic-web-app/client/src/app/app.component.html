@@ -1,0 +1,15 @@
+<html>
+  <head></head>
+  <body>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <label for="first_name">First name:</label>
+      <input type="text" name="first_name" />
+      <input type="submit" />
+
+      <p *ngIf="data">
+        Here's the data I got based on your query: 
+        <code>{{ data }}</code>
+      </p>
+    </form>
+  </body>
+</html>
