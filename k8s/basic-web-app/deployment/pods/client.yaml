@@ -2,6 +2,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: client
+  labels:
+    app: web
+    component: front-end
 spec:
   containers:
     - image: cadro/basic-web-app-client

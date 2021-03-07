@@ -2,6 +2,9 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: server
+  labels:
+    app: web
+    component: backend
 spec:
   containers:
     - image: cadro/basic-web-app-server
