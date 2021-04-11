@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: server
-  namespace: basic-web-app
   labels:
     app: web
     component: backend
@@ -10,7 +9,10 @@ spec:
   selector:
     matchLabels:
       app: web
-      component: backend
+    matchExpressions:
+      - key: component
+        operator: In
+        values: [ backend ]
   replicas: 3
   minReadySeconds: 15
   strategy:
@@ -30,3 +32,8 @@ spec:
           name: server
           ports:
             - containerPort: 3000
+          livenessProbe:
+            httpGet: 
+              path: /
+              port: 3000
+            initialDelaySeconds: 15

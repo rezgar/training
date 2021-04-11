@@ -29,6 +29,10 @@ spec:
           name: client
           ports:
             - containerPort: 80
+          livenessProbe:
+            httpGet: 
+              path: /
+              port: 3000
           env:
             - name: SERVER_URL
               value: http://server
