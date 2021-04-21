@@ -36,3 +36,14 @@ spec:
           env:
             - name: SERVER_URL
               value: http://server
+            # - name: SERVER_API_KEY
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: internal
+            #       key: backend-api-key
+          envFrom:
+            - secretRef:
+                name: backend-api-key
+          resources:
+            requests:
+              cpu: "0.1"
